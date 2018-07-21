@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_width="fill_parent"
+ android:layout_height="fill_parent" 
+
+ 
+
+  android:background="@drawable/one" >
+  
+    <RelativeLayout
+        android:id="@+id/info"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+       
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+      android:layout_marginBottom="30dp"
+        android:layout_below="@+id/docname"
+      android:layout_marginTop="30dp"
+        android:background="@drawable/round_corner2" >
+<LinearLayout 
+     android:id="@+id/heading"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#FFFFFF"
+    >
+    
+    
+    <TextView
+        android:id="@+id/Sno1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/price"
+       android:paddingLeft="10dp"
+        android:text="S.No."
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        android:layout_weight="1.1"
+         />
+    <TextView
+        android:id="@+id/pateintname1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       android:text="Patient Name"
+       android:paddingRight="5dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:textColor="#000000"
+        android:textSize="21sp" 
+        
+        android:layout_weight=".8"
+        
+       
+        />
+<TextView
+        android:id="@+id/Status1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       android:text="Status"
+      
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:textColor="#000000"
+        android:textSize="21sp" 
+        android:paddingLeft="8dp"
+        android:layout_weight="1"
+        
+       
+        /><TextView
+        android:id="@+id/tokenno1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       android:text="Token Number"
+       android:paddingLeft="40dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:textColor="#000000" 
+        android:textSize="21sp" 
+        android:layout_weight="1"
+        
+       
+        />
+    
+</LinearLayout>
+
+ <ListView android:id="@+id/listpateint" android:focusable="false" 
+        android:layout_width="fill_parent" android:layout_height="wrap_content" 
+        android:layout_below="@+id/heading"
+      
+     
+       
+        android:fastScrollEnabled="false" 
+        android:fadeScrollbars="false"
+        android:clickable="false"
+         />
+   
+</RelativeLayout>
+ </RelativeLayout>
+ 

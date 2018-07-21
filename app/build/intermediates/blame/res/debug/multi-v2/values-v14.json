@@ -1,0 +1,47 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\zainabdata\\LN Hospital\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+            "map": [
+                {
+                    "source": "D:\\zainabdata\\LN Hospital\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "from": {
+                        "startLines": "7",
+                        "startColumns": "3",
+                        "startOffsets": "224",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "355"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "184"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\acer\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0-alpha1.aar\\c6334f0e44a7c08e4c29d82e2ba8832e\\res\\values-v14\\values-v14.xml",
+                    "from": {
+                        "startLines": "2,7,8,9,15,21,22,23,24,25,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,331,402,485,895,1317,1437,1569,1689,1752,1906,1969",
+                        "endLines": "6,7,8,14,20,21,22,23,24,27,28,29",
+                        "endColumns": "12,70,82,12,12,119,131,119,62,12,62,131",
+                        "endOffsets": "326,397,480,890,1312,1432,1564,1684,1747,1901,1964,2096"
+                    },
+                    "to": {
+                        "startLines": "5,10,11,12,18,24,25,26,27,28,31,32",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "189,465,536,619,1029,1451,1571,1703,1823,1886,2040,2103",
+                        "endLines": "9,10,11,17,23,24,25,26,27,30,31,32",
+                        "endColumns": "12,70,82,12,12,119,131,119,62,12,62,131",
+                        "endOffsets": "460,531,614,1024,1446,1566,1698,1818,1881,2035,2098,2230"
+                    }
+                }
+            ]
+        }
+    ]
+}

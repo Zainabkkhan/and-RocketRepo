@@ -1,0 +1,77 @@
+
+<RelativeLayout 
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="wrap_content" >
+   
+
+
+
+<LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+     
+    >
+    
+    
+    <TextView
+        android:id="@+id/Sno"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       
+        android:textStyle="bold"
+       android:paddingLeft="16dp"
+        android:text="S.No."
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:textColor="#d41a1a"
+        android:textSize="17sp"
+        android:layout_weight="1.1"
+         />
+    <TextView
+        android:id="@+id/pateintname"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       android:text="Patient Name"
+      android:textStyle="bold"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:textColor="#745151"
+        android:textSize="17sp" 
+       android:paddingRight="8dp"
+        android:layout_weight=".8"
+        
+       
+        />
+<TextView
+        android:id="@+id/Status"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       android:text="Status"
+      android:textStyle="bold"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:textColor="#745151"
+        android:textSize="17sp" 
+        android:paddingLeft="13dp"
+        android:layout_weight="1"
+        
+       
+        /><TextView
+        android:id="@+id/tokenno"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       android:text="Token No."
+       android:paddingLeft="120dp"
+       android:textStyle="bold"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:textColor="#745151"
+        android:textSize="17sp" 
+        android:layout_weight="1"
+        
+       
+        />
+    
+</LinearLayout>
+</RelativeLayout>

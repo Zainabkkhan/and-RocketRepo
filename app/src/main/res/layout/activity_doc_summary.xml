@@ -1,0 +1,250 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/one"
+    tools:context="com.example.appolloehospital.Summary" >
+ 
+    <TextView 
+        
+        android:id="@+id/docname"
+        android:layout_width="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"
+        android:text="Dr. Aman" 
+        android:layout_centerHorizontal="true"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+         android:textColor="#D64937"
+        
+        />
+<RelativeLayout
+        android:id="@+id/info"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+       
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+      android:layout_marginBottom="30dp"
+        android:layout_below="@+id/docname"
+      android:layout_marginTop="30dp"
+        android:background="@drawable/round_corner2" >
+    
+    <TextView 
+        
+        android:id="@+id/logindate"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="Login Date:" 
+       android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+       android:paddingLeft="20dp"
+
+        android:layout_marginTop="20dp"
+        
+        
+        />
+    <TextView 
+        
+        android:id="@+id/logindatevalue"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="11-12-2014:" 
+        android:layout_alignParentRight="true"
+        android:textSize="20sp"
+       android:paddingRight="20dp"
+
+        android:layout_marginTop="20dp"
+        
+        
+        />
+    
+    
+     <TextView 
+        
+        android:id="@+id/logintime"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="Login Time:" 
+       android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+       android:layout_below="@+id/logindate"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="15dp"
+        
+        
+        />
+    <TextView 
+        
+        android:id="@+id/logintimevalue"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="12:23" 
+        android:layout_alignParentRight="true"
+        android:textSize="20sp"
+       android:paddingRight="20dp"
+  android:layout_below="@+id/logindatevalue"
+        android:layout_marginTop="15dp"
+        
+        
+        />
+    <TextView 
+        
+        android:id="@+id/totalpatients"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="Total Patients(Group):" 
+       android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+       android:layout_below="@+id/logintime"
+      android:paddingLeft="20dp"
+        android:layout_marginTop="15dp"
+        
+        
+        />
+    <TextView 
+        
+        android:id="@+id/totalpatientsvalue"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="50" 
+        android:layout_alignParentRight="true"
+        android:textSize="20sp"
+       android:paddingRight="20dp"
+  android:layout_below="@+id/logintimevalue"
+        android:layout_marginTop="15dp"
+        
+        
+        />
+    <TextView 
+        
+        android:id="@+id/patientcalled"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="Total Patients(Doctor):" 
+       android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+       android:layout_below="@+id/totalpatients"
+       android:paddingLeft="20dp"
+        android:layout_marginTop="15dp"
+        
+        
+        />
+    <TextView 
+        
+        android:id="@+id/patientcalledvalue"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="12" 
+        android:layout_alignParentRight="true"
+        android:textSize="20sp"
+       android:paddingRight="20dp"
+  android:layout_below="@+id/totalpatientsvalue"
+        android:layout_marginTop="15dp"
+        
+        
+        />
+    <TextView 
+        
+        android:id="@+id/patienttreated"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="Patients Treated:" 
+       android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+       android:layout_below="@+id/patientcalled"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="15dp"
+        
+        
+        />
+    <TextView 
+        
+        android:id="@+id/patienttreatedvalue"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="10" 
+        android:layout_alignParentRight="true"
+        android:textSize="20sp"
+       android:paddingRight="20dp"
+  android:layout_below="@+id/patientcalledvalue"
+        android:layout_marginTop="15dp"
+        
+        
+        />
+    <TextView 
+        
+        android:id="@+id/patientskipped"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="Patients Skipped:" 
+       android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+       android:layout_below="@+id/patienttreated"
+       android:paddingLeft="20dp"
+        android:layout_marginTop="15dp"
+        
+        
+        />
+    <TextView 
+        
+        android:id="@+id/patientskippedvalue"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="5" 
+        android:layout_alignParentRight="true"
+        android:textSize="20sp"
+       android:paddingRight="20dp"
+  android:layout_below="@+id/patienttreatedvalue"
+        android:layout_marginTop="15dp"
+        
+        
+        />
+    
+    
+    <TextView 
+        
+        android:id="@+id/patientcancelled"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="Patients Cancelled:" 
+       android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+       android:layout_below="@+id/patientskipped"
+         android:paddingLeft="20dp"
+        android:layout_marginTop="15dp"
+        
+        
+        />
+    <TextView 
+        
+        android:id="@+id/patientcancelledvalue"
+        android:layout_width="wrap_content"
+       android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:text="5" 
+        android:layout_alignParentRight="true"
+        android:textSize="20sp"
+       android:paddingRight="20dp"
+  android:layout_below="@+id/patientskippedvalue"
+        android:layout_marginTop="15dp"
+        ></TextView>
+    </RelativeLayout>
+</RelativeLayout>

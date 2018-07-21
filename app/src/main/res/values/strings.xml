@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LN Hospital</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_android_irs_h001">AndroidIrsH001</string>
+    <string name="country_prompt">Select Room</string>
+
+    <string-array name="country_arrays">
+        <item>Room number</item>
+        <item>123</item>
+        <item>456</item>
+        <item>678</item>
+        <item>765</item>
+        <item>546</item>
+        <item>654</item>
+        <item>900</item>
+    </string-array>
+
+    <string name="title_activity_panel">PanelActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_first">FirstActivity</string>
+    <string name="title_activity_doc_summary">DocSummaryActivity</string>
+    <string name="title_activity_pateint_detail">PateintDetailActivity</string>
+
+</resources>

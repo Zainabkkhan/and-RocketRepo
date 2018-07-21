@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/bg_dialog" android:padding="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    
+        <TextView 
+            android:textColor="#ff4f4f4f" 
+            android:layout_gravity="center_horizontal" 
+            android:id="@+id/txtTitle" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:text="IP Config"
+            android:layout_alignParentTop="true"
+            android:textSize="25dp"
+            android:layout_centerHorizontal="true" />
+        
+      
+        <EditText 
+            android:id="@+id/inputpassword"
+            android:layout_width="match_parent"
+            android:layout_margin="22dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtTitle"
+            android:hint="Password"
+            
+            />
+       <LinearLayout 
+           
+           
+           android:id="@+id/buttonpanel"
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:layout_marginLeft="10.0dip" 
+            android:layout_marginTop="10.0dip" 
+            android:layout_below="@+id/inputpassword"
+            android:layout_marginRight="10.0dip" 
+            android:orientation="horizontal"
+           >
+        <Button 
+            android:textStyle="bold" 
+            android:textColor="#ffffffff" 
+            android:id="@+id/btnOk" 
+            android:background="@layout/buttonmain" 
+            android:padding="10.0dip" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:layout_marginLeft="10.0dip" 
+            android:layout_marginTop="15.0dip" 
+            android:layout_marginRight="10.0dip" 
+            android:text="OK" 
+            android:layout_weight="1"
+            android:layout_below="@+id/txtEdit" 
+            android:layout_centerHorizontal="true" />
+        <Button 
+            android:textStyle="bold" 
+            android:textColor="#ffffffff" 
+            android:id="@+id/btnCancel" 
+            android:background="@layout/buttonmain" 
+            android:padding="10.0dip" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:layout_marginLeft="10.0dip" 
+            android:layout_marginTop="15.0dip" 
+            android:layout_marginRight="10.0dip" 
+            android:text="Cancel" 
+            android:layout_weight ="1"
+            android:layout_below="@+id/txtEdit" 
+            android:layout_centerHorizontal="true" />
+        </LinearLayout>
+   
+</RelativeLayout>

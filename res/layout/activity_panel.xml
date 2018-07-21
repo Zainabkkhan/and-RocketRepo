@@ -1,0 +1,205 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   
+    tools:context="com.dan.lnhospital.PanelActivity"
+    android:background="@drawable/one"
+     >
+     
+    
+  <RelativeLayout 
+        android:layout_width="430dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/b1"
+        android:layout_alignParentLeft="true"
+        
+        
+        
+        >
+      
+      <TextView 
+          android:id="@+id/nameString"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Welcome Dr. Rajiv"
+          android:layout_marginTop="40dp"
+          android:textSize="30dp"
+         
+          android:layout_centerHorizontal="true"
+          android:textColor="#000000"
+          
+          />
+      <TextView 
+          android:id="@+id/listType"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          
+          android:layout_below="@+id/nameString"
+          android:text="FreshList"
+          android:layout_margin="20dp"
+          android:textSize="26dp"
+          android:layout_centerHorizontal="true"
+          android:textColor="#ff0000"
+          
+          />
+      <TextView 
+          android:id="@+id/currentToken"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+         
+          android:layout_below="@+id/listType"
+         
+          android:layout_marginTop="60dp"
+          android:layout_marginBottom="20dp"
+          android:textSize="35dp"
+          android:layout_centerHorizontal="true"
+          android:textColor="#000000"
+          
+          />
+     <TextView 
+          android:id="@+id/totalToken"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+         
+          android:layout_below="@+id/currentToken"
+         
+          android:layout_margin="20dp"
+          android:textSize="35dp"
+          android:layout_centerHorizontal="true"
+          android:textColor="#000000"
+          
+          />
+     
+     <TextView 
+          android:id="@+id/totalSkippedToken"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+         android:visibility="invisible"
+          android:layout_below="@+id/totalToken"
+          android:text="Skipped Patients: "
+          android:layout_margin="20dp"
+          android:textSize="35dp"
+          android:layout_centerHorizontal="true"
+          android:textColor="#000000"
+          
+          />
+  </RelativeLayout>
+    
+    <!-- 600 dp for default tab -->
+     <RelativeLayout 
+        android:layout_width="600dp" 
+        android:layout_height="wrap_content"
+        android:background="@drawable/b2"
+        android:layout_alignParentRight="true"
+        
+        
+        
+        >
+        
+          
+         <LinearLayout 
+             android:id="@+id/upper"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="140dp"
+          android:layout_marginLeft="10dp"
+         android:layout_marginRight="30dp"
+          >
+           
+       <Button
+           style="@style/panel_button"
+        android:id="@+id/Call"
+       
+       android:layout_weight="1"
+       
+       android:drawableLeft="@drawable/call"
+        android:background="@layout/button001"
+        android:padding="15dp"
+        android:text="Call" />
+       
+       <Button
+        style="@style/panel_button"
+        android:id="@+id/Skip"
+       
+       android:layout_weight="1"
+      
+       android:drawableLeft="@drawable/skiplayout"
+        android:background="@layout/button002"
+        android:padding="15dp"
+        android:text="Skip" />
+             
+            <Button
+         style="@style/panel_button"
+        android:id="@+id/PatientsDetail"
+       
+       android:layout_weight="1"
+       
+       android:drawableLeft="@drawable/patientdetail"
+        android:background="@layout/button003"
+        android:padding="15dp"
+        android:text="Patient Detail" />
+         </LinearLayout>
+         
+         
+          <LinearLayout 
+              android:id="@+id/lower"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="30dp"
+          android:layout_marginLeft="10dp"
+         android:layout_marginRight="30dp"
+         android:layout_below="@+id/upper"
+          >
+           
+       <Button
+           style="@style/panel_button"
+        android:id="@+id/summary"
+       
+       android:layout_weight="1"
+       
+       android:drawableLeft="@drawable/summary"
+        android:background="@layout/button004"
+        android:padding="15dp"
+        android:text="Doctor Detail" />
+       
+       <Button
+        style="@style/panel_button"
+        android:id="@+id/Skiplist"
+       
+       android:layout_weight="1"
+      
+       android:drawableLeft="@drawable/skiplist"
+        android:background="@layout/button005"
+        android:padding="15dp"
+        android:text="Skip List" />
+             
+            <Button
+         style="@style/panel_button"
+        android:id="@+id/Logout"
+       
+       android:layout_weight="1"
+       
+       android:drawableLeft="@drawable/logout"
+        android:background="@layout/button006"
+        android:padding="15dp"
+        android:text="Log Out" />
+         </LinearLayout>
+     </RelativeLayout>
+<!--   <Button
+        android:id="@+id/call"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+       android:layout_weight="1"
+       android:textColor="#ffffff"
+       android:drawableLeft="@drawable/call"
+        android:background="@layout/button001"
+        android:padding="15dp"
+        android:text="Call" />
+    
+    -->
+    
+
+</RelativeLayout>
