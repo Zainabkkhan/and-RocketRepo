@@ -22,7 +22,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class DisplayService extends Service {
+public class DisplayService extends Service
+{
 
     private Intent alarmIntent;
     String department = "ENT", response;
@@ -31,15 +32,16 @@ public class DisplayService extends Service {
 
 
     @Override
-    public void onCreate() {
+    public void onCreate()
+    {
         // TODO Auto-generated method stub
         new DownloadNewsService().execute();
         super.onCreate();
 
-
     }
 
-    public IBinder onBind(Intent intent) {
+    public IBinder onBind(Intent intent)
+    {
         // TODO Auto-generated method stub
 
         return myBinder;
@@ -47,25 +49,26 @@ public class DisplayService extends Service {
 
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-
-
+    public int onStartCommand(Intent intent, int flags, int startId)
+    {
         Log.i("onStartCommand", "called");
 
         new DownloadNewsService().execute();
 
-
         return START_REDELIVER_INTENT;
     }
 
-    public class MyLocalBinder extends Binder {
-        DisplayService getService() {
+    public class MyLocalBinder extends Binder
+    {
+        DisplayService getService()
+        {
             return DisplayService.this;
         }
     }
 
 
-    public void newsdownload() {
+    public void newsdownload()
+    {
         Log.i("ImageUpload", "Setting up auto image capture alarm");
         long triggerTime = SystemClock.elapsedRealtime() +
                 60 * 1000;
@@ -82,10 +85,12 @@ public class DisplayService extends Service {
         Log.i("ServiceLOgin", "Alarm has been set");
     }
 
-    public void CancelAlarm() {
+    public void CancelAlarm()
+    {
         Log.i("login", "LoginService.CancelAlarm");
 
-        if (alarmIntent != null) {
+        if (alarmIntent != null)
+        {
             Log.i("LNJP1", "LoginService.CancelAlarm");
             AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
             PendingIntent sender = PendingIntent.getBroadcast(this, 0, alarmIntent,
@@ -97,24 +102,28 @@ public class DisplayService extends Service {
     }
 
 
-    public class DownloadNewsService extends AsyncTask<Void, Void, Void> implements OnDismissListener {
+    public class DownloadNewsService extends AsyncTask<Void, Void, Void> implements OnDismissListener
+    {
 
         Context mcontext;
 
         @Override
-        protected void onPreExecute() {
+        protected void onPreExecute()
+        {
             super.onPreExecute();
 
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected Void doInBackground(Void... params)
+        {
             response = login();
             return null;
         }
 
         @Override
-        protected void onPostExecute(Void args) {
+        protected void onPostExecute(Void args)
+        {
             Intent intent = new Intent();
             intent.setAction(MY_ACTION);
             intent.putExtra("response", response);
@@ -127,11 +136,11 @@ public class DisplayService extends Service {
             //Log.i("Service","Stopped");
             newsdownload();
 
-
         }
 
         @Override
-        public void onDismiss() {
+        public void onDismiss()
+        {
             // TODO Auto-generated method stub
 
         }
@@ -139,7 +148,8 @@ public class DisplayService extends Service {
 
     }
 
-    public String login() {
+    public String login()
+    {
         Log.i("i am", "in login");
         String s = "";
         URL url;
@@ -147,7 +157,8 @@ public class DisplayService extends Service {
         InputStream is = null;
         int status = AppVariable.getType();
         Log.i("status.loginservice", String.valueOf(status));
-        try {
+        try
+        {
             url = new URL("http://" + AppVariable.getIP() + ":8080/dqms/ServiceDataAndroid?d=" + AppVariable.getDocid() + "&t=" + AppVariable.getType());
             Log.i("LNJP", "http://" + AppVariable.getIP() + ":8080/dqms/ServiceDataAndroid?d=" + AppVariable.getDocid() + "&t=" + AppVariable.getType());
 
@@ -164,7 +175,8 @@ public class DisplayService extends Service {
             String reply1 = "";
             Log.i("reply", "code");
 
-            while ((reply1 = theReader.readLine()) != null) {
+            while ((reply1 = theReader.readLine()) != null)
+            {
                 content.append(reply1);
             }
             theReader.close();
@@ -176,7 +188,9 @@ public class DisplayService extends Service {
             Toast.makeText(getApplicationContext(), s,
                     Toast.LENGTH_LONG).show();
 
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             System.out.print(e);
             e.getStackTrace();
         }

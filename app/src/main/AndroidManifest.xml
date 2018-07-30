@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dan.lnhospital"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0">
 
     <uses-sdk
         android:minSdkVersion="15"
@@ -26,20 +26,23 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
-            android:name="com.dan.lnhospital.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,60 +50,54 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.dan.lnhospital.PanelActivity"
+            android:name=".PanelActivity"
             android:label="@string/title_activity_panel"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-        </activity>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
         <activity
-            android:name="com.dan.lnhospital.FirstActivity"
+            android:name=".FirstActivity"
             android:label="@string/title_activity_panel"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-        </activity>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
+
+        <!-- <service -->
+        <!-- android:name="com.dan.lnhospital.CameraService" -->
+        <!-- android:label="CameraService" > -->
+        <!-- </service> -->
+        <service
+            android:name=".DisplayService"
+            android:label="DisplayService"></service>
+
+        <receiver android:name=".LoginReciever"></receiver>
+        <receiver android:name=".WifiReciever"></receiver>
 
         <service
-            android:name="com.dan.lnhospital.CameraService"
-            android:label="CameraService" >
-        </service>
-        <service
-            android:name="com.dan.lnhospital.DisplayService"
-            android:label="DisplayService" >
-        </service>
+            android:name=".WiFiCheckService"
+            android:label="WiFiCheckService"></service>
 
-        <receiver android:name="com.dan.lnhospital.LoginReciever" >
-        </receiver>
- <receiver android:name="com.dan.lnhospital.WifiReciever" >
-        </receiver>
-        
-  <service
-            android:name="com.dan.lnhospital.WiFiCheckService"
-            android:label="WiFiCheckService" >
-        </service>
         <activity
-            android:name="com.dan.lnhospital.DocSummaryActivity"
+            android:name=".DocSummaryActivity"
             android:label="@string/title_activity_doc_summary"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-        </activity>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
         <activity
-            android:name="com.dan.lnhospital.PateintDetailActivity"
+            android:name=".PateintDetailActivity"
             android:label="@string/title_activity_pateint_detail"
-            
-              android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-        </activity>
-        
-        
-        
-        
-         <receiver android:enabled="true" android:name=".BootComplete" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-                    <intent-filter>
-                        <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                        <category android:name="android.intent.category.DEFAULT"/>
-                    </intent-filter>
-                </receiver>
-        
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
+
+        <receiver
+            android:name=".BootComplete"
+            android:enabled="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".MessageActivity"></activity>
     </application>
 
 </manifest>

@@ -1,11 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-106:12
-INJECTED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-106:12
-INJECTED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-106:12
-INJECTED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-106:12
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-103:12
+INJECTED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-103:12
+INJECTED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-103:12
+INJECTED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-103:12
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\c6334f0e44a7c08e4c29d82e2ba8832e\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\f6a70ceccb22ec15a5f8037bb858f8ff\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\4a80ee2a9ccd2370951843eda662a0f6\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\957d2b268eef71da12c762148007460c\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\562bf480bb13d794f76478c8adf4ed21\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\f00546f064d2915ff85aeaf1e83d9315\AndroidManifest.xml:17:1-31:12
@@ -13,9 +14,9 @@ MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\acer\.
 MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\f50919ba6bee3cac05c0aeeecb078269\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\77350dd64082e2f23ea73e0133be24c1\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\1d8c8e6afb1b90e3882c5c750d930693\AndroidManifest.xml:17:1-31:12
-INJECTED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-106:12
-INJECTED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-106:12
-INJECTED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-106:12
+INJECTED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-103:12
+INJECTED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-103:12
+INJECTED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:2:1-103:12
 	package
 		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:3:5-33
 		INJECTED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml
@@ -38,6 +39,8 @@ MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\acer\.grad
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\c6334f0e44a7c08e4c29d82e2ba8832e\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\f6a70ceccb22ec15a5f8037bb858f8ff\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\f6a70ceccb22ec15a5f8037bb858f8ff\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\4a80ee2a9ccd2370951843eda662a0f6\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\4a80ee2a9ccd2370951843eda662a0f6\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\957d2b268eef71da12c762148007460c\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\957d2b268eef71da12c762148007460c\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\562bf480bb13d794f76478c8adf4ed21\AndroidManifest.xml:20:5-44
@@ -113,23 +116,33 @@ ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:27:5-76
 	android:name
 		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:27:22-73
 uses-permission#android.permission.CHANGE_NETWORK_STATE
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:29:2-76
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:29:5-79
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:29:19-73
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:29:22-76
 uses-permission#android.permission.CHANGE_WIFI_MULTICAST_STATE
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:31:2-83
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:31:5-86
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:31:19-80
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:31:22-83
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:32:2-78
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:32:5-81
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:32:19-75
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:32:22-78
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:33:5-75
+	android:name
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:33:22-72
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:34:5-80
+	android:name
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:34:22-77
 application
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:33:5-104:19
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:36:5-101:19
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\c6334f0e44a7c08e4c29d82e2ba8832e\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\c6334f0e44a7c08e4c29d82e2ba8832e\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\f6a70ceccb22ec15a5f8037bb858f8ff\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\f6a70ceccb22ec15a5f8037bb858f8ff\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\4a80ee2a9ccd2370951843eda662a0f6\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.2.aar\4a80ee2a9ccd2370951843eda662a0f6\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\957d2b268eef71da12c762148007460c\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\957d2b268eef71da12c762148007460c\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\562bf480bb13d794f76478c8adf4ed21\AndroidManifest.xml:26:5-20
@@ -145,117 +158,115 @@ MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\acer\.g
 MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\1d8c8e6afb1b90e3882c5c750d930693\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\1d8c8e6afb1b90e3882c5c750d930693\AndroidManifest.xml:29:5-20
 	android:label
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:36:9-41
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:39:9-41
 	android:icon
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:35:9-38
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:38:9-38
 	android:allowBackup
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:34:9-35
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:37:9-35
 	android:theme
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:37:9-40
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:40:9-40
 activity#com.dan.lnhospital.MainActivity
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:38:9-48:20
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:41:9-51:20
 	android:screenOrientation
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:41:13-50
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:44:13-50
 	android:label
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:40:13-45
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:43:13-45
 	android:theme
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:42:13-71
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:45:13-71
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:39:13-59
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:42:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:43:13-47:29
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:46:13-50:29
 action#android.intent.action.MAIN
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:44:17-69
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:47:17-69
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:44:25-66
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:47:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:46:17-77
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:49:17-77
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:46:27-74
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:49:27-74
 activity#com.dan.lnhospital.PanelActivity
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:49:9-54:20
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:52:9-56:83
 	android:screenOrientation
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:52:13-50
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:55:13-50
 	android:label
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:51:13-57
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:54:13-57
 	android:theme
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:53:13-71
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:56:13-71
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:50:13-60
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:53:13-42
 activity#com.dan.lnhospital.FirstActivity
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:55:9-60:20
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:57:9-61:83
 	android:screenOrientation
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:58:13-50
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:60:13-50
 	android:label
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:57:13-57
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:59:13-57
 	android:theme
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:59:13-71
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:61:13-71
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:56:13-60
-service#com.dan.lnhospital.CameraService
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:62:9-65:19
-	android:label
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:64:13-42
-	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:63:13-60
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:58:13-42
 service#com.dan.lnhospital.DisplayService
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:66:9-69:19
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:67:9-69:54
 	android:label
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:69:13-43
+	android:name
 		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:68:13-43
-	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:67:13-61
 receiver#com.dan.lnhospital.LoginReciever
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:71:9-72:20
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:71:9-60
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:71:19-66
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:71:19-48
 receiver#com.dan.lnhospital.WifiReciever
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:73:2-74:20
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:72:9-59
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:73:12-58
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:72:19-47
 service#com.dan.lnhospital.WiFiCheckService
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:76:3-79:19
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:74:9-76:56
 	android:label
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:78:13-45
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:76:13-45
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:77:13-63
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:75:13-45
 activity#com.dan.lnhospital.DocSummaryActivity
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:80:9-85:20
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:78:9-82:83
 	android:screenOrientation
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:83:13-50
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:81:13-50
 	android:label
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:82:13-63
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:80:13-63
 	android:theme
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:84:13-71
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:82:13-71
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:81:13-65
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:79:13-47
 activity#com.dan.lnhospital.PateintDetailActivity
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:86:9-92:20
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:83:9-87:83
 	android:screenOrientation
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:90:15-52
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:86:13-50
 	android:label
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:88:13-66
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:85:13-66
 	android:theme
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:91:13-71
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:87:13-71
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:87:13-68
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:84:13-50
 receiver#com.dan.lnhospital.BootComplete
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:97:10-102:28
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:89:9-98:20
 	android:enabled
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:97:20-42
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:91:13-35
 	android:permission
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:97:72-134
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:92:13-75
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:97:43-71
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:90:13-41
 intent-filter#action:name:android.intent.action.BOOT_COMPLETED+category:name:android.intent.category.DEFAULT
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:98:21-101:37
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:93:13-97:29
 action#android.intent.action.BOOT_COMPLETED
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:99:25-86
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:94:17-79
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:99:33-84
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:94:25-76
 category#android.intent.category.DEFAULT
-ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:100:25-83
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:96:17-76
 	android:name
-		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:100:35-81
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:96:27-73
+activity#com.dan.lnhospital.MessageActivity
+ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:100:9-62
+	android:name
+		ADDED from D:\zainabdata\LN Hospital\app\src\main\AndroidManifest.xml:100:19-50
 meta-data#android.support.VERSION
 ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\c6334f0e44a7c08e4c29d82e2ba8832e\AndroidManifest.xml:25:5-27:41
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] C:\Users\acer\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\f6a70ceccb22ec15a5f8037bb858f8ff\AndroidManifest.xml:25:5-27:41

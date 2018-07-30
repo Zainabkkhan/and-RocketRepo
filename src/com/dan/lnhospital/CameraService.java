@@ -34,9 +34,7 @@ public class CameraService extends Service
 {
       //Camera variables
       //a surface holder
-      
-      
-      //a variable to control the camera
+	 //a variable to control the camera
       private Camera mCamera;
       //the camera parameters
       private Parameters parameters;
@@ -47,11 +45,8 @@ public class CameraService extends Service
      
     @Override
     public void onCreate()
-    { 
-    	
-    	
-        super.onCreate();
-         
+    {
+    super.onCreate();
     }
     @Override
     public void onStart(Intent intent, int startId) {
@@ -151,9 +146,7 @@ public class CameraService extends Service
       	    	      
       	    		  try {
       	    			
-      	    			  
-      	    			  
-      	   	                  mCamera.setPreviewDisplay(sv.getHolder());
+      	    		  	     mCamera.setPreviewDisplay(sv.getHolder());
       	   	                  parameters = mCamera.getParameters();
       	   	                  //Size bestPreviewSize = determineBestPreviewSize(parameters);
       	   	                  //Size bestPictureSize = determineBestPictureSize(parameters);

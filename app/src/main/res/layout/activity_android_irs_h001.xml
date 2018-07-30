@@ -4,54 +4,38 @@
     android:background="@drawable/backgroundnew"
     android:layout_height="match_parent" >
 
-    <!--<ImageView
-       android:id="@+id/logo"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_centerHorizontal="true"
-       android:layout_marginTop="10dp"
-       android:src="@drawable/logo3"  />
-    <ImageView
-       android:id="@+id/logodoc"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_centerHorizontal="true"
-       android:layout_marginTop="10dp"
-       android:src="@drawable/doc1"
-       android:layout_below="@+id/logo" /> -->
-        
        <Button
-        android:id="@+id/ipconfig"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="IP Config"
-        android:textSize="23dp"
-        android:padding="15dp"
-        android:background="@layout/buttonmain"
-        android:textColor="#ffffff"
-        android:layout_margin="10dp" />
+            android:id="@+id/ipconfig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="IP Config"
+            android:textSize="23dp"
+            android:padding="15dp"
+            android:background="@layout/buttonmain"
+            android:textColor="#ffffff"
+            android:layout_margin="10dp" />
 
        <EditText
-        android:textSize="18sp"
-        android:id="@+id/editText1"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginTop="400dp"
-        android:background="@layout/usernametextbox001"
-        android:drawableLeft="@drawable/usernameicon"
-        android:ems="10"
-        android:hint="Username"
-        android:padding="10dp" >
+            android:textSize="20sp"
+            android:id="@+id/editText1"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="400dp"
+            android:background="@layout/usernametextbox001"
+            android:drawableLeft="@drawable/usernameicon"
+            android:ems="10"
+            android:hint="Username"
+            android:padding="10dp" >
 
            <requestFocus />
     </EditText>
 
     <EditText
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:id="@+id/editText2"
         android:layout_width="match_parent"
         android:layout_height="85dp"
@@ -69,7 +53,7 @@
     
     
     
-      <!--    <Spinner
+ <!--<Spinner
         android:id="@+id/spinner1"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
@@ -89,33 +73,35 @@
             android:layout_marginTop="55dp"
             android:layout_marginRight="100dp"
             android:layout_marginLeft="100dp">
-        <Button
-        android:id="@+id/button1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_weight="1"
-        android:tag="1"
-        android:textColor="#ffffff"
-        android:layout_marginRight="20dp"
-        android:background="@layout/buttonmain"
-        android:padding="15dp"
-        android:text="Login"
-        android:textSize="23sp"/>
 
         <Button
-        android:id="@+id/button2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="20dp"
-        android:layout_weight="1"
-        android:tag="2"
-        android:textColor="#ffffff"
-        android:background="@layout/buttonmain"
-        android:padding="15dp"
-        android:textSize="23sp"
-        android:text="Sign out all accounts" />
+            android:id="@+id/button1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:tag="1"
+            android:textColor="#ffffff"
+            android:layout_marginRight="20dp"
+            android:background="@layout/buttonmain"
+            android:padding="15dp"
+            android:text="Login"
+            android:textSize="23sp"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:tag="2"
+            android:textColor="#ffffff"
+            android:background="@layout/buttonmain"
+            android:padding="15dp"
+            android:textSize="23sp"
+            android:text="Sign out all accounts" />
+
         </LinearLayout>
 
 </RelativeLayout>

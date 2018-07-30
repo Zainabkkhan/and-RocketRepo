@@ -31,8 +31,8 @@ public class MainActivity extends Activity implements OnClickListener
     EditText username;
     EditText password;
     Spinner s1;
-    SharedPreferences data;
-    SharedPreferences getIP;
+    SharedPreferences data;    //used for username and password
+    SharedPreferences getIP;  //used for ip address
     Editor edit;
     HashMap<String, Integer> rid;
 
@@ -54,6 +54,7 @@ public class MainActivity extends Activity implements OnClickListener
         password = findViewById(R.id.editText2);
 
         String Ip = getIP.getString("IP", null);
+        Log.e("Ip.......",""+Ip);
         if (Ip != null) {
             AppVariable.setIP(Ip);
         }
@@ -62,7 +63,8 @@ public class MainActivity extends Activity implements OnClickListener
         {
             String input = data.getString("data", null);
             String screenData[] = input.split("/");
-            if (screenData.length != 0) {
+            if (screenData.length != 0)
+            {
                 username.setText(screenData[0]);
                 password.setText(screenData[1]);
             }
@@ -76,14 +78,17 @@ public class MainActivity extends Activity implements OnClickListener
         login.setOnClickListener(this);
         signout.setOnClickListener(this);
         Ipconfig.setOnClickListener(this);
+
         startService(new Intent(getApplicationContext(), WiFiCheckService.class));
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v)
+    {
         // TODO Auto-generated method stub
 
-        if (v.getId() == R.id.button1) {
+        if (v.getId() == R.id.button1)
+        {
             //login
             AppSettings.buttonSound(getBaseContext());
             String user = username.getText().toString();
@@ -99,17 +104,22 @@ public class MainActivity extends Activity implements OnClickListener
             String url = "http://" + AppVariable.getIP() + ":8080/dqms/LoginApiAndroid?u=" + user.trim() + "&p=" + pass.trim();
             url.replaceAll("//s+", "%20");
 
-            if (AppSettings.isNetworkAvailable(this)) {
+            if (AppSettings.isNetworkAvailable(this))
+            {
 
-                if (user != null && pass != null) {
+                if (user != null && pass != null)
+                {
                     //login in asyncTask
-                    new LoginAsync(url, AppVariable.LOGINFLAG, this).execute();
-                } else {
-
-                    Toast.makeText(this, "Please add required details", Toast.LENGTH_LONG).show();
+                 new LoginAsync(url, AppVariable.LOGINFLAG, this).execute();
+                }
+                else
+                {
+                 Toast.makeText(this, "Please add required details", Toast.LENGTH_LONG).show();
                 }
 
-            } else {
+            }
+            else
+            {
                 //network Unavailable dialog box
                 CustomDialog dialog = new CustomDialog(this);
                 dialog.show();
@@ -123,6 +133,7 @@ public class MainActivity extends Activity implements OnClickListener
             String user = username.getText().toString();
             String pass = password.getText().toString();
             String url = "http://" + AppVariable.getIP() + ":8080/dqms/LoginApiAndroid?u=" + user.trim() + "&p=" + pass.trim() + "&l=1";
+            Log.e("url....",""+url);
             new LoginAsync(url, AppVariable.TREATFLAG, this).execute();
             AppSettings.buttonSound(getBaseContext());
 
@@ -132,7 +143,6 @@ public class MainActivity extends Activity implements OnClickListener
             AppSettings.buttonSound(getBaseContext());
             IpConfigDialog Ip = new IpConfigDialog(this, "Password");
             Ip.show();
-            Log.e("Ipconfig...",""+Ip);
             AppVariable.setDialog1(Ip);
 
         }
@@ -145,10 +155,12 @@ public class MainActivity extends Activity implements OnClickListener
         return str.toString();
     }
 
-    private ArrayList<String> roomNumber(ArrayList<RoomDetial> ar) {
+    private ArrayList<String> roomNumber(ArrayList<RoomDetial> ar)
+    {
         ArrayList<String> as = new ArrayList<String>();
 
-        for (int i = 0; i <= ar.size(); i++) {
+        for (int i = 0; i <= ar.size(); i++)
+        {
             if (i == 0)
                 as.add("Select Room");
             else {
@@ -175,7 +187,8 @@ public class MainActivity extends Activity implements OnClickListener
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         // TODO Auto-generated method stub
         //super.onBackPressed();
     }

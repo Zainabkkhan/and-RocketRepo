@@ -38,7 +38,7 @@ public class AppSettings {
 		String formattedDate = sdf.format(date);
 		System.out.println(formattedDate);
 
-        return formattedDate;
+		return formattedDate;
     }
 	public static String buildDate(long unixSeconds)
 	{
@@ -54,18 +54,18 @@ public class AppSettings {
 	
 	
 	 public static void  buttonSound(Context c) //generate button sound
-		{ 
-		 Vibrator vib = (Vibrator) c.getSystemService(Context.VIBRATOR_SERVICE);
-		 vib.vibrate(200);
-			Uri path = Uri.parse("android.resource://com.dan.lnhospital/raw/click");
-			MediaPlayer mp = MediaPlayer.create(c,path);  
-			if(mp.isPlaying())
-	        {  
-	            mp.stop();
-	        } 
-			mp.setLooping(false);
-			mp.start();
-			
-		}
+     {
+     Vibrator vib = (Vibrator) c.getSystemService(Context.VIBRATOR_SERVICE);
+     vib.vibrate(200);
+        Uri path = Uri.parse("android.resource://com.dan.lnhospital/raw/click");
+        MediaPlayer mp = MediaPlayer.create(c,path);
+        if(mp.isPlaying())
+        {
+            mp.stop();
+        }
+        mp.setLooping(false);
+        mp.start();
+
+     }
 	 
 }

@@ -23,14 +23,14 @@
     </style>
 <style name="panel_button">
         <item name="android:textColor">#ffffff</item>
-         
+         <item name="android:textSize">23sp</item>
         <item name="android:layout_marginLeft">20dp</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:layout_width">130dp</item>
         <item name="android:layout_height">130dp</item>
     </style>
     
- <style name="dialogStyle" parent="@*android:style/Theme.Dialog">
+ <style name="dialogStyle" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@color/transparent</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>

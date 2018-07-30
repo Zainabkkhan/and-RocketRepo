@@ -34,9 +34,7 @@ public class CameraService extends Service
 {
       //Camera variables
       //a surface holder
-      
-      
-      //a variable to control the camera
+	  //a variable to control the camera
       private Camera mCamera;
       //the camera parameters
       private Parameters parameters;

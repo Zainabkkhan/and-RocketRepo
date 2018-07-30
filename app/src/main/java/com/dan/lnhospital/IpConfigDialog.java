@@ -30,6 +30,7 @@ public class IpConfigDialog extends Dialog implements OnClickListener
         setContentView(R.layout.ip_config);
         a = context;
         this.Id = Id;
+        Log.e("password.............",this.Id);
         data = a.getSharedPreferences("saveIP", Context.MODE_PRIVATE);
         edit = data.edit();
         Button Ok = findViewById(R.id.btnOk);
@@ -89,9 +90,7 @@ public class IpConfigDialog extends Dialog implements OnClickListener
                 AppVariable.getDialog1().dismiss();
                 break;
 
-
         }
         // TODO Auto-generated method stub
-
     }
 }

@@ -63,7 +63,8 @@ class LoginAsync extends AsyncTask<String, Void, String> {
     }
 
     @Override
-    protected String doInBackground(String... urls) {
+    protected String doInBackground(String... urls)
+    {
         Log.i("LNJP", "inbackground");
         response = login(url1);//http connection
         Log.i("result", response);
@@ -72,10 +73,12 @@ class LoginAsync extends AsyncTask<String, Void, String> {
     }
 
     @Override
-    protected void onPostExecute(String result) {
+    protected void onPostExecute(String result)
+    {
         super.onPostExecute(result);
         Log.i("result", result);
-        if (stat.equals(AppVariable.LOGINFLAG)) {
+        if (stat.equals(AppVariable.LOGINFLAG))
+        {
             try {
                 String error = jsonValue(result);
                 if (flag == 1)
@@ -84,11 +87,16 @@ class LoginAsync extends AsyncTask<String, Void, String> {
                     Toast.makeText(main, "Server disconnected", Toast.LENGTH_LONG).show();
                     mProgressDialog.dismiss();
                     flag = 0;
-                } else {
-                    if (error != null) {  //prints error
+                }
+                else {
+                    if (error != null)
+                    {
+                        //prints error
                         Toast.makeText(main, error, Toast.LENGTH_LONG).show();
                         mProgressDialog.dismiss();
-                    } else {  //login
+                    }
+                    else
+                    {  //login
                         Log.i("LNJP", "loginsuccess");
                         Intent service = new Intent(main, CameraService.class);
                         service.putExtra("user", Username);
@@ -105,12 +113,18 @@ class LoginAsync extends AsyncTask<String, Void, String> {
 
                     }
                 }
-            } catch (final IllegalArgumentException e) {
+            }
+            catch (final IllegalArgumentException e)
+            {
                 // Handle or log or ignore
-            } catch (final Exception e) {
+            }
+            catch (final Exception e)
+            {
                 // Handle or log or ignore
                 e.printStackTrace();
-            } finally {
+            }
+            finally
+            {
                 mProgressDialog = null;
             }
         }
@@ -118,11 +132,13 @@ class LoginAsync extends AsyncTask<String, Void, String> {
         if (stat.equals(AppVariable.TREATFLAG))//sign out all account
         {
             String error = jsonValue(result);
-            if (flag == 1) {
+            if (flag == 1)
+            {
 
                 Toast.makeText(main, "Server disconnected", Toast.LENGTH_LONG).show();
                 flag = 0;
-            } else if (error.equals("0")) {
+            } else if (error.equals("0"))
+            {
                 Toast.makeText(main, "Please login now", Toast.LENGTH_LONG).show();
 
             }
@@ -132,12 +148,14 @@ class LoginAsync extends AsyncTask<String, Void, String> {
     }
 
 
-    public String login(String path) {
+    public String login(String path)
+    {
         String s = "";
         URL url;
         HttpURLConnection connection = null;
         InputStream is = null;
-        try {
+        try
+        {
             url = new URL(path);
             Log.i("LNJP", path);
             // TODO Auto-generated catch block

@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ import java.net.URL;
 public class PanelActivity extends Activity implements android.view.View.OnClickListener {
 
     private Context mContext = this;
+    EditText edMessage;
 
     static int Listtype = 0;
 
@@ -59,11 +61,8 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
     static String current_token = "na"; // current token number
 
     String total_skip_token; //total skip token in skip list
-
     Context mcontext = this;
     ProgressDialog mProgressDialog;
-
-
     Drawable img;
     Button call;
     Button skip;
@@ -77,16 +76,14 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
     TextView list;
     TextView roomnum, depart;
     TextView skipped;
-
     Vibrator vib;
-
-
     BroadcastReceiver broadcastReceiver;
     DisplayService mService;
     boolean mBound = false;
 
     //call back for bindservice
-    public ServiceConnection mConnection = new ServiceConnection() {
+    public ServiceConnection mConnection = new ServiceConnection()
+    {
 
         @Override
         public void onServiceConnected(ComponentName className,
@@ -98,14 +95,16 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         }
 
         @Override
-        public void onServiceDisconnected(ComponentName arg0) {
+        public void onServiceDisconnected(ComponentName arg0)
+        {
             mBound = false;
         }
     };
 
 
     @Override
-    protected void onStart() {
+    protected void onStart()
+    {
         // TODO Auto-generated method stub
         //bind Service
         Intent intent = new Intent(this, DisplayService.class);
@@ -120,11 +119,11 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_panel);
-
 
         Intent i = getIntent();
         Bundle data = i.getExtras();
@@ -177,25 +176,30 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         // TODO Auto-generated method stub
         //super.onBackPressed();
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.panel, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings)
+        {
+
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -203,7 +207,8 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
 
 
     @Override
-    protected void onDestroy() {
+    protected void onDestroy()
+    {
         // TODO Auto-generated method stub
         Log.i("LNJP", "onDistroy");
         mService.CancelAlarm();
@@ -215,18 +220,22 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v)
+    {
         // TODO Auto-generated method stub
         int Id = v.getId();
         AppSettings.buttonSound(getBaseContext());
-        switch (Id) {
+        switch (Id)
+        {
             case R.id.Call:
                 // button onclick
 
-
-                if (AppSettings.isNetworkAvailable(this)) {
+                if (AppSettings.isNetworkAvailable(this))
+                {
                     callAction();
-                } else {
+                }
+                else
+                {
                     CustomDialog dialog = new CustomDialog(this);
                     dialog.show();
                     AppVariable.setDialog(dialog);
@@ -237,10 +246,12 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
 
             case R.id.Skip:
 
-
-                if (AppSettings.isNetworkAvailable(this)) {
+                if (AppSettings.isNetworkAvailable(this))
+                {
                     skipAction();
-                } else {
+                }
+                else
+                {
                     CustomDialog dialog = new CustomDialog(this);
                     dialog.show();
                     AppVariable.setDialog(dialog);
@@ -249,10 +260,13 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
                 break;
             case R.id.PatientsDetail:
 
-
-                if (AppSettings.isNetworkAvailable(this)) {
-                    patientDetailAction();
-                } else {
+                if (AppSettings.isNetworkAvailable(this))
+                {
+                   // patientDetailAction();
+                    message();
+                }
+                else
+                {
                     CustomDialog dialog = new CustomDialog(this);
                     dialog.show();
                     AppVariable.setDialog(dialog);
@@ -263,8 +277,8 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
 
             case R.id.Logout:
 
-
-                if (AppSettings.isNetworkAvailable(this)) {
+                if (AppSettings.isNetworkAvailable(this))
+                {
                     if (AppVariable.getCallButtonStat().equals("Call"))
                         new Data("http://" + AppVariable.getIP() + ":8080/dqms/DCUKeyFunctionAndroid?did=" + AppVariable.getDocid() + "&f=4", AppVariable.LOGINFLAG).execute();
                     else
@@ -272,7 +286,8 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
                 }
 
                 //Log.i("LNJP","http://"+AppVariable.IP+"/dqms/api/android_json.php?username="+username+"&logout=1");
-                else {
+                else
+                {
                     CustomDialog dialog = new CustomDialog(this);
                     dialog.show();
                     AppVariable.setDialog(dialog);
@@ -283,9 +298,12 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
             case R.id.summary:
 
 
-                if (AppSettings.isNetworkAvailable(this)) {
+                if (AppSettings.isNetworkAvailable(this))
+                {
                     new Data("http://" + AppVariable.getIP() + ":8080/dqms/DCUKeyFunctionAndroid?did=" + AppVariable.getDocid() + "&f=2", AppVariable.SUMMARYFLAG).execute();
-                } else {
+                }
+                else
+                {
                     CustomDialog dialog = new CustomDialog(this);
                     dialog.show();
                     AppVariable.setDialog(dialog);
@@ -294,8 +312,8 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
 
             case R.id.Skiplist:
 
-
-                if (AppSettings.isNetworkAvailable(this)) {
+                if (AppSettings.isNetworkAvailable(this))
+                {
                     if (AppVariable.getCallButtonStat().equals("Call"))
                         skiplistAction();
                     else
@@ -311,28 +329,38 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         }
     }
 
+    private void message()
+    {
+        startActivity(new Intent(PanelActivity.this,MessageActivity.class));
+    }
+
 
     private void callAction()
-
     {
-        if (AppVariable.getCallButtonStat().equals("Call") && !AppVariable.isCallStat()) {
+        Log.i("call","call action ");
+        if (AppVariable.getCallButtonStat().equals("Call") && !AppVariable.isCallStat())
+        {
             //call
-            if (AppVariable.getListtype().equals("Fresh List")) {
+            if (AppVariable.getListtype().equals("Fresh List"))
+            {
                 //send always 0
                 new Data(apiDisplay(AppVariable.getDocid(), 1, 1, 1, AppVariable.getType(), 0), AppVariable.CALLFLAG).execute();
                 Log.i("LNJP", apiDisplay(AppVariable.getDocid(), 1, 1, 1, AppVariable.getType(), 0));
-            } else if (AppVariable.getListtype().equals("Skip List")) {
+            }
+            else if (AppVariable.getListtype().equals("Skip List"))
+            {
                 //send first time 0 then previous token
                 new Data(apiDisplay(AppVariable.getDocid(), 1, 1, 1, AppVariable.getType(), AppVariable.getCalltoken()), AppVariable.CALLFLAG).execute();
                 Log.i("LNJP", apiDisplay(AppVariable.getDocid(), 1, 1, 1, AppVariable.getType(), AppVariable.getCalltoken()));
             }
 
-
             Log.i("LNJP", "inCAll");
             AppVariable.setCallStat(true);
 
 
-        } else if (AppVariable.getCallButtonStat().equals("Treat")) { // treat
+        }
+        else if (AppVariable.getCallButtonStat().equals("Treat"))
+        { // treat
 
             Log.i("LNJP", "inTReat");
             new Data(apiDisplay(AppVariable.getDocid(), 1, 1, 3, AppVariable.getType(), Integer.parseInt(current_token)), AppVariable.TREATFLAG).execute();
@@ -340,26 +368,25 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         }
     }
 
-    private void skipAction() {
+    private void skipAction()
+    {
         Log.i("LNJP", "inSkip");
         if (AppVariable.getCallButtonStat().equals("Treat"))
             new Data(apiDisplay(AppVariable.getDocid(), 1, 2, 2, AppVariable.getType(), Integer.parseInt(current_token)), AppVariable.SKIPFLAG).execute();
         else
             Toast.makeText(this, "Please Call patient first", Toast.LENGTH_SHORT).show();
-
-
     }
 
-    private void skiplistAction() {
-        if (AppVariable.getCallButtonStat().equals("Call")) {
+    private void skiplistAction()
+    {
+        if (AppVariable.getCallButtonStat().equals("Call"))
+        {
             if (AppVariable.getListtype().equals("Fresh List"))//Moving to Skip List
             {
-
                 AppVariable.setType(1);
                 AppVariable.setListtype("Skip List");//Text View Stat list type
                 AppVariable.setSkipListButtonStat("Fresh List"); //Button Stat list Type
                 AppVariable.setCalltoken(0); //set call token value 0 for next Skip list first Call
-
 
                 currenttoken.setText("Current token:   ");
                 patientsdetail.setText("Cancel"); // pateintdetail button stat cancel
@@ -372,39 +399,47 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
                 patientsdetail.setCompoundDrawables(img, null, null, null);
 
 
-            } else { //move to fresh list
+            }
+            else
+            {
+                //move to fresh list
                 AppVariable.setType(0);
                 AppVariable.setListtype("Fresh List");
                 AppVariable.setSkipListButtonStat("Skip List");
                 currenttoken.setText("Last token:   ");
                 patientsdetail.setText("Patients Detail");
 
-                skipped = (TextView) findViewById(R.id.totalSkippedToken);
+                skipped =  findViewById(R.id.totalSkippedToken);
                 skipped.setVisibility(View.INVISIBLE);
 
                 img = mContext.getResources().getDrawable(R.drawable.patientdetail);
                 img.setBounds(0, 0, 60, 60);
                 patientsdetail.setCompoundDrawables(img, null, null, null);
 
-
             }
             Skiplist.setText(AppVariable.getSkipListButtonStat());
             list.setText(AppVariable.getListtype());
             new Data("http://" + AppVariable.getIP() + ":8080/dqms/ServiceDataAndroid?d=" + AppVariable.getDocid() + "&t=" + AppVariable.getType(), AppVariable.SKIPLISTFLAG).execute();
-        } else {
+        }
+        else
+        {
             Toast.makeText(this, "Please Treat patient first", Toast.LENGTH_SHORT).show();
         }
     }
 
 
-    private void patientDetailAction() {
+    private void patientDetailAction()
+    {
 
-        if (AppVariable.getListtype().equals("Fresh List")) {
+        if (AppVariable.getListtype().equals("Fresh List"))
+        {
             //PatientDetail
 
             new Data("http://" + AppVariable.getIP() + ":8080/dqms/DCUKeyFunctionAndroid?did=" + AppVariable.getDocid() + "&f=3", AppVariable.PATIENTDETAIL).execute();
-
-        } else if (AppVariable.getListtype().equals("Skip List")) {
+             Log.e("doctor id...",""+AppVariable.getDocid());
+        }
+        else if (AppVariable.getListtype().equals("Skip List"))
+        {
             //cancel
 
             if (AppVariable.getCallButtonStat().equals("Treat"))
@@ -417,7 +452,6 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
     }
 
     private void intialiseXml()
-
     {
         call = findViewById(R.id.Call);
         skip = findViewById(R.id.Skip);
@@ -439,7 +473,8 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
     }
 
 
-    private String login(String urlString) {
+    private String login(String urlString)
+    {
         String s = "";
         URL url;
         HttpURLConnection connection = null;
@@ -492,30 +527,39 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
 
     }
 
-    private void postEx(String result, String id) throws JSONException {
-        if (Exceptionflag.equals("false")) {
-            if (jsonValue(result) != null && !jsonValue(result).equals("0")) {
+    private void postEx(String result, String id) throws JSONException
+    {
+        if (Exceptionflag.equals("false"))
+        {
+            if (jsonValue(result) != null && !jsonValue(result).equals("0"))
+            {
                 AppVariable.setCallStat(false);
                 errorMessage(jsonValue(result));
 
-            } else {
-                if (id.equals(AppVariable.CALLFLAG)) {
+            }
+            else
+            {
+                if (id.equals(AppVariable.CALLFLAG))
+                {
                     CallJson(result);
                     panelState();
 
                 }
 
-                if (id.equals(AppVariable.TREATFLAG)) {
+                if (id.equals(AppVariable.TREATFLAG))
+                {
                     treatJson(result);
                     panelState();
                 }
 
-                if (id.equals(AppVariable.SKIPFLAG)) {
+                if (id.equals(AppVariable.SKIPFLAG))
+                {
                     treatJson(result);
                     panelState();
                 }
 
-                if (id.equals(AppVariable.SUMMARYFLAG)) {
+                if (id.equals(AppVariable.SUMMARYFLAG))
+                {
                     Intent i = new Intent(PanelActivity.this, DocSummaryActivity.class);
                     i.putExtra("response", result);
                     i.putExtra("docname", docname);
@@ -523,33 +567,39 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
                     mProgressDialog.dismiss();
                 }
 
-                if (id.equals(AppVariable.SKIPLISTFLAG)) {
+                if (id.equals(AppVariable.SKIPLISTFLAG))
+                {
                     serviceJsonFresh(result);
                 }
-                if (id.equals(AppVariable.PATIENTDETAIL)) {
+                if (id.equals(AppVariable.PATIENTDETAIL))
+                {
                     Intent i = new Intent(PanelActivity.this, PateintDetailActivity.class);
                     i.putExtra("response", result);
                     startActivity(i);
                     mProgressDialog.dismiss();
                 }
-                if (id.equals(AppVariable.CANCELFLAG)) {
+                if (id.equals(AppVariable.CANCELFLAG))
+                {
                     treatJson(result);
                     panelState();
                 }
-                if (id.equals(AppVariable.LOGINFLAG)) {
+                if (id.equals(AppVariable.LOGINFLAG))
+                {
                     Intent i = new Intent(PanelActivity.this, MainActivity.class);
                     startActivity(i);
                     finish();
-
                 }
 
             }
-        } else if (Exceptionflag.equals("true")) {
+        }
+        else if (Exceptionflag.equals("true"))
+        {
             Toast.makeText(this, "Server disconnected",
                     Toast.LENGTH_LONG).show();
             Exceptionflag = "false";
             AppVariable.setCallStat(false);
-            if (mProgressDialog != null) {
+            if (mProgressDialog != null)
+            {
                 mProgressDialog.dismiss();
             }
         }
@@ -571,11 +621,13 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
     }
 
 
-    public boolean isNetworkAvailable() {
+    public boolean isNetworkAvailable()
+    {
         ConnectivityManager cm = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = cm.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
+        if (networkInfo != null && networkInfo.isConnected())
+        {
             return true;
         }
         return false;
@@ -583,7 +635,8 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
 
     }
 
-    private void loginJson(String value) throws JSONException {
+    private void loginJson(String value) throws JSONException
+    {
         JSONObject login = new JSONObject(value);
         docname = login.getString("doctor_name");
         Total_token = login.getString("total_token");
@@ -593,14 +646,18 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
 
     }
 
-    private void CallJson(String value) throws JSONException {
+    private void CallJson(String value) throws JSONException
+    {
         JSONObject login = new JSONObject(value);
-        if (AppVariable.getListtype().equals("Fresh List")) {
+        if (AppVariable.getListtype().equals("Fresh List"))
+        {
             Log.i("LNJP", "list.fresh");
             Total_token = login.getString("total_token");
             current_token = login.getString("token_issue");
 
-        } else if (AppVariable.getListtype().equals("Skip List")) {
+        }
+        else if (AppVariable.getListtype().equals("Skip List"))
+        {
             Total_token = login.getString("total_token");
 
             current_token = login.getString("CurrentSkippedTokenNo");
@@ -617,23 +674,25 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         call.setCompoundDrawables(img, null, null, null);
     }
 
-    private void treatJson(String value) throws JSONException {
+    private void treatJson(String value) throws JSONException
+    {
         JSONObject login = new JSONObject(value);
-        if (AppVariable.getListtype().equals("Fresh List")) {
+        if (AppVariable.getListtype().equals("Fresh List"))
+        {
             Log.i("LNJP", "list.fresh");
             Total_token = login.getString("total_token");
             current_token = login.getString("current_token");
 
-        } else if (AppVariable.getListtype().equals("Skip List")) {
+        }
+        else if (AppVariable.getListtype().equals("Skip List"))
+        {
             Total_token = login.getString("total_token");
             current_token = login.getString("CurrentSkippedTokenNo");
             total_skip_token = login.getString("TotalSkippedTokenNo");
 
         }
 
-
         AppVariable.setCallButtonStat("Call");
-
         call.setText(AppVariable.getCallButtonStat());
         Drawable img = this.getResources().getDrawable(R.drawable.call);
         img.setBounds(0, 0, 60, 60);
@@ -643,13 +702,18 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
 
     private void panelState()
     {
-        if (AppVariable.getCallButtonStat().equals("Treat")) {
+        if (AppVariable.getCallButtonStat().equals("Treat"))
+        {
             currenttoken.setText("Called Token: " + current_token);
 
-        } else if (AppVariable.getListtype().equals("Fresh List")) {
+        }
+        else if (AppVariable.getListtype().equals("Fresh List"))
+        {
 
             currenttoken.setText("Last Called Token: " + current_token);
-        } else if (AppVariable.getListtype().equals("Skip List")) {
+        }
+        else if (AppVariable.getListtype().equals("Skip List"))
+        {
             currenttoken.setText("Current Token: " + current_token);
             skipped.setText("Skipped Patients: " + total_skip_token);
         }
@@ -659,13 +723,15 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
     private void serviceJsonFresh(String value) throws JSONException
     {
         JSONObject js = new JSONObject(value);
-        if (AppVariable.getListtype().equals("Fresh List")) {
+        if (AppVariable.getListtype().equals("Fresh List"))
+        {
             Total_token = js.getString("total_token");
             current_token = js.getString("current_token");
 
             panelState();
         }
-        if (AppVariable.getListtype().equals("Skip List")) {
+        if (AppVariable.getListtype().equals("Skip List"))
+        {
             Total_token = js.getString("total_token");
             current_token = js.getString("CurrentSkippedTokenNo");
             total_skip_token = js.getString("TotalSkippedTokenNo");
@@ -678,17 +744,17 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
     private void serviceJsonSkip(String value) throws JSONException
     {
         JSONObject js = new JSONObject(value);
-        if (AppVariable.getListtype().equals("Fresh List")) {
+        if (AppVariable.getListtype().equals("Fresh List"))
+        {
             Total_token = js.getString("total_token");
             current_token = js.getString("current_token");
 
             panelState();
         }
-        if (AppVariable.getListtype().equals("Skip List")) {
+        if (AppVariable.getListtype().equals("Skip List"))
+        {
             Total_token = js.getString("total_token");
-
             total_skip_token = js.getString("TotalSkippedTokenNo");
-
             panelState();
         }
 
@@ -739,7 +805,8 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         }
 
         @Override
-        protected void onPostExecute(String result) {
+        protected void onPostExecute(String result)
+        {
             super.onPostExecute(result);
 
             Log.i("LNJP", result);
@@ -755,7 +822,6 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
             } finally {
                 mProgressDialog = null;
             }
-
 
         }
 
