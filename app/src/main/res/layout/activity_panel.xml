@@ -9,8 +9,10 @@
     <RelativeLayout
         android:layout_width="580dp"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/b1">
+        android:background="@drawable/b1"
+        android:layout_alignParentLeft="true">
 
         <TextView
             android:id="@+id/nameString"
@@ -18,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:text="Welcome Dr. Rajiv"
+            android:text="Welcome Dr."
             android:textColor="#000000"
             android:textSize="38sp" />
 
@@ -43,6 +45,7 @@
             android:layout_marginTop="90dp"
             android:textColor="#000000"
             android:textSize="45sp" />
+
 
         <TextView
             android:id="@+id/totalToken"

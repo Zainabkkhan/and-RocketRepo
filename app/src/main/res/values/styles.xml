@@ -23,7 +23,7 @@
     </style>
 <style name="panel_button">
         <item name="android:textColor">#ffffff</item>
-         <item name="android:textSize">23sp</item>
+         <item name="android:textSize">25sp</item>
         <item name="android:layout_marginLeft">20dp</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:layout_width">130dp</item>

@@ -28,11 +28,9 @@ public class RetroWraper
         Gson gson = new GsonBuilder().setLenient().create();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(IP_AUTO)
-
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(okHttpClient)
                 .build();
-
         return retrofit.create(ApiInterface.class);
     }
 

@@ -136,6 +136,10 @@
         "source": "C:\\Users\\acer\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0-alpha1.aar\\c6334f0e44a7c08e4c29d82e2ba8832e\\res\\color\\abc_tint_spinner.xml"
     },
     {
+        "merged": "D:\\zainabdata\\LN Hospital\\app\\build\\intermediates\\res\\merged\\debug\\layout_msg_showing_list.xml.flat",
+        "source": "D:\\zainabdata\\LN Hospital\\app\\src\\main\\res\\layout\\msg_showing_list.xml"
+    },
+    {
         "merged": "D:\\zainabdata\\LN Hospital\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\acer\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0-alpha1.aar\\c6334f0e44a7c08e4c29d82e2ba8832e\\res\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
@@ -514,6 +518,10 @@
     {
         "merged": "D:\\zainabdata\\LN Hospital\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
         "source": "C:\\Users\\acer\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0-alpha1.aar\\c6334f0e44a7c08e4c29d82e2ba8832e\\res\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "D:\\zainabdata\\LN Hospital\\app\\build\\intermediates\\res\\merged\\debug\\drawable_delete.png.flat",
+        "source": "D:\\zainabdata\\LN Hospital\\app\\src\\main\\res\\drawable\\delete.png"
     },
     {
         "merged": "D:\\zainabdata\\LN Hospital\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg6.png.flat",

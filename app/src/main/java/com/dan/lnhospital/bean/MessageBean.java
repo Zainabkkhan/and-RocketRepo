@@ -6,24 +6,32 @@ import retrofit2.http.POST;
 
 public class MessageBean
 {
-//    @POST("/dqms/Meassage?mess=")
-//    Call<String> sendAttendanceserver(@Body MessageBean bean);
-    private String mess;
-   // private int mFlag;
+    private String message;
+    private String mFlag;
+    private String docId;
+    private String Id;
 
-    public String getMess() {
-        return mess;
+    public String getDocId() {
+        return docId;
     }
 
-    public void setMess(String mess) {
-        this.mess = mess;
+    public void setDocId(String docId) {
+        this.docId = docId;
     }
 
-//    public int getmFlag() {
-//        return mFlag;
-//    }
-//
-//    public void setmFlag(int mFlag) {
-//        this.mFlag = mFlag;
-//    }
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getmFlag() {
+        return mFlag;
+    }
+
+    public void setmFlag(String mFlag) {
+        this.mFlag = mFlag;
+    }
 }

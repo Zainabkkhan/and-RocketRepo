@@ -300,7 +300,7 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
 
                 if (AppSettings.isNetworkAvailable(this))
                 {
-                    new Data("http://" + AppVariable.getIP() + ":8080/dqms/DCUKeyFunctionAndroid?did=" + AppVariable.getDocid() + "&f=2", AppVariable.SUMMARYFLAG).execute();
+                  new Data("http://" + AppVariable.getIP() + ":8080/dqms/DCUKeyFunctionAndroid?did=" + AppVariable.getDocid() + "&f=2", AppVariable.SUMMARYFLAG).execute();
                 }
                 else
                 {
@@ -345,7 +345,7 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
             {
                 //send always 0
                 new Data(apiDisplay(AppVariable.getDocid(), 1, 1, 1, AppVariable.getType(), 0), AppVariable.CALLFLAG).execute();
-                Log.i("LNJP", apiDisplay(AppVariable.getDocid(), 1, 1, 1, AppVariable.getType(), 0));
+                Log.i("LNJP............", apiDisplay(AppVariable.getDocid(), 1, 1, 1, AppVariable.getType(), 0));
             }
             else if (AppVariable.getListtype().equals("Skip List"))
             {

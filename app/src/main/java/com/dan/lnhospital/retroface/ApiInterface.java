@@ -10,6 +10,9 @@ import retrofit2.http.Query;
 
 public interface ApiInterface
 {
-    @GET("dqms/Meassage?")
-    Call<String> setMesageData(@Query(value = "mess") String bean);
+    @GET("/dqms/MessageAPI?")
+    Call<String> setMessageData(@Query(value = "a") String bean);
+
+    @GET("/dqms/MessageDDAPI?")
+    Call<String> setDisplayDelete(@Query(value = "a") String bean);
 }
