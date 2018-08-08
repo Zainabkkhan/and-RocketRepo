@@ -2,13 +2,11 @@ package com.dan.lnhospital;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -51,22 +49,21 @@ public class MessageActivity extends Activity
         msgRecycler=findViewById(R.id.msg_recycler);
         msgRecycler.setLayoutManager(new LinearLayoutManager(context));
         //showing database
-        if(dbHelper.getMsgList()!=null)
+        if(dbHelper.getMsgList().size() >0)
         {
             setAdapter(dbHelper.getMsgList());
         }
-        else
-            Toast.makeText(this, "First send message", Toast.LENGTH_SHORT).show();
+        //on click on Button send
         btnSend.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                String message=edMsg.getText().toString().trim();
+                final String message=edMsg.getText().toString().trim();
                 bean=new MessageBean();
                 bean.setMessage(message);
                 bean.setDocId(""+AppVariable.getDocid());
-                Log.e("SendBean",new Gson().toJson(bean));
+                bean.setFlag("2");
                 RetroWraper client=new RetroWraper();
                 Call<String> dataSend=client.getRetroService().setMessageData(new Gson().toJson(bean));
                 dataSend.enqueue(new Callback<String>()
@@ -74,15 +71,22 @@ public class MessageActivity extends Activity
                     @Override
                     public void onResponse(Call<String> call, Response<String> response)
                     {
+                        edMsg.setText("");
+                        Log.e("response",""+response.body());
+                        Log.e("response........",""+call.request().url());
                            if(response.body().equals("Sucess"))
                            {
                                arrayList=new ArrayList<>();
                                arrayList.add(bean);
                                dbHelper.insertMsgs(arrayList);
-
+                               setAdapter(dbHelper.getMsgList());
                            }
-                             setAdapter(dbHelper.getMsgList());
-                     }
+                           else
+                           {
+                               Toast.makeText(context, "message not send", Toast.LENGTH_SHORT).show();
+                           }
+
+                    }
 
                     @Override
                     public void onFailure(Call<String> call, Throwable t)

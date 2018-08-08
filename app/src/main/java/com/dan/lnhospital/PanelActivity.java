@@ -10,25 +10,37 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.graphics.drawable.Drawable;
+import android.media.session.MediaSession;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Vibrator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dan.lnhospital.AppVar.AppSettings;
 import com.dan.lnhospital.AppVar.AppVariable;
 import com.dan.lnhospital.DisplayService.MyLocalBinder;
+import com.dan.lnhospital.adapter.TokenAdapter;
+import com.dan.lnhospital.bean.TokenBean;
+import com.dan.lnhospital.bean.TokenDataReceiveBean;
+import com.dan.lnhospital.retroface.ApiInterface;
+import com.dan.lnhospital.retroface.RetroWraper;
+import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,26 +52,27 @@ import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class PanelActivity extends Activity implements android.view.View.OnClickListener {
 
     private Context mContext = this;
     EditText edMessage;
-
     static int Listtype = 0;
-
     private String username;
     private String department;
     private String password;
     private String Roomnum;
-
     private String Exceptionflag = "false";//flag for server state check
-
     static String docname;
-    static String Total_token = "na"; //total token number
+    static String Total_token = "na"; //  total token number
     static String current_token = "na"; // current token number
-
     String total_skip_token; //total skip token in skip list
     Context mcontext = this;
     ProgressDialog mProgressDialog;
@@ -80,6 +93,18 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
     BroadcastReceiver broadcastReceiver;
     DisplayService mService;
     boolean mBound = false;
+    RecyclerView freshTokenRecycler,skipTokenRecycler;
+
+    TokenBean tokenBean;
+    List<TokenBean> tokenlist;
+    TokenAdapter tokenAdapter;
+    ListView  newPatientList,skipList;
+    ArrayList<String> newPatient = new ArrayList<String>();
+    ArrayList<String> skipDataList = new ArrayList<String>();
+    ArrayList<String> tokenListArray = new ArrayList<String>();
+    String selectedToken;
+
+
 
     //call back for bindservice
     public ServiceConnection mConnection = new ServiceConnection()
@@ -124,25 +149,25 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_panel);
-
         Intent i = getIntent();
         Bundle data = i.getExtras();
         String value = data.getString("response");
         username = data.getString("username");
         vib = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
         // Vibrate for 500 milliseconds
-
         AppVariable.setType(0); //set listtype flag 0 Fresh
-
         AppVariable.setListtype("Fresh List"); //set List type Fresh List
 
         intialiseXml();// intialize layout
 
-
-        if (savedInstanceState == null) {
-            try {
+        if (savedInstanceState == null)
+        {
+            try
+            {
 
                 loginJson(value); // get data from login Json
+                tokenResponse();
+                skiptokenResponse();
 
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
@@ -156,16 +181,17 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         {
             @Override
             public void onReceive(Context context, Intent intent) {
-
                 String value = intent.getStringExtra("response");
-
-                try {
+                try
+                {
                     if (AppVariable.getListtype().equals("Fresh List"))
                         serviceJsonFresh(value);
                     else if (AppVariable.getListtype().equals("Skip List"))
                         serviceJsonSkip(value);
 
-                } catch (JSONException e) {
+                }
+                catch (JSONException e)
+                {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
@@ -199,8 +225,7 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         int id = item.getItemId();
         if (id == R.id.action_settings)
         {
-
-            return true;
+           return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -229,7 +254,6 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         {
             case R.id.Call:
                 // button onclick
-
                 if (AppSettings.isNetworkAvailable(this))
                 {
                     callAction();
@@ -285,7 +309,6 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
                         Toast.makeText(this, "Please treat patient first", Toast.LENGTH_SHORT).show();
                 }
 
-                //Log.i("LNJP","http://"+AppVariable.IP+"/dqms/api/android_json.php?username="+username+"&logout=1");
                 else
                 {
                     CustomDialog dialog = new CustomDialog(this);
@@ -296,7 +319,6 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
                 break;
 
             case R.id.summary:
-
 
                 if (AppSettings.isNetworkAvailable(this))
                 {
@@ -333,6 +355,10 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
     {
         startActivity(new Intent(PanelActivity.this,MessageActivity.class));
     }
+    public static interface CallBackInterface
+    {
+        public void getCalledPosition(int position);
+    }
 
 
     private void callAction()
@@ -344,17 +370,20 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
             if (AppVariable.getListtype().equals("Fresh List"))
             {
                 //send always 0
+
                 new Data(apiDisplay(AppVariable.getDocid(), 1, 1, 1, AppVariable.getType(), 0), AppVariable.CALLFLAG).execute();
                 Log.i("LNJP............", apiDisplay(AppVariable.getDocid(), 1, 1, 1, AppVariable.getType(), 0));
             }
             else if (AppVariable.getListtype().equals("Skip List"))
             {
                 //send first time 0 then previous token
+
                 new Data(apiDisplay(AppVariable.getDocid(), 1, 1, 1, AppVariable.getType(), AppVariable.getCalltoken()), AppVariable.CALLFLAG).execute();
                 Log.i("LNJP", apiDisplay(AppVariable.getDocid(), 1, 1, 1, AppVariable.getType(), AppVariable.getCalltoken()));
             }
 
             Log.i("LNJP", "inCAll");
+
             AppVariable.setCallStat(true);
 
 
@@ -397,9 +426,7 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
                 img = mContext.getResources().getDrawable(R.drawable.cancel); //Image change to Cancel Button
                 img.setBounds(0, 0, 60, 60);
                 patientsdetail.setCompoundDrawables(img, null, null, null);
-
-
-            }
+                }
             else
             {
                 //move to fresh list
@@ -412,9 +439,9 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
                 skipped =  findViewById(R.id.totalSkippedToken);
                 skipped.setVisibility(View.INVISIBLE);
 
-                img = mContext.getResources().getDrawable(R.drawable.patientdetail);
-                img.setBounds(0, 0, 60, 60);
-                patientsdetail.setCompoundDrawables(img, null, null, null);
+//                img = mContext.getResources().getDrawable(R.drawable.patientdetail);
+//                img.setBounds(0, 0, 60, 60);
+//                patientsdetail.setCompoundDrawables(img, null, null, null);
 
             }
             Skiplist.setText(AppVariable.getSkipListButtonStat());
@@ -463,6 +490,11 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         totaltoken = findViewById(R.id.totalToken);
         currenttoken = findViewById(R.id.currentToken);
         list = findViewById(R.id.listType);
+        freshTokenRecycler=findViewById(R.id.fresh_token_recycler);
+        freshTokenRecycler.setLayoutManager(new LinearLayoutManager(mContext));
+        skipTokenRecycler=findViewById(R.id.skip_token_recycler);
+        skipTokenRecycler.setLayoutManager(new LinearLayoutManager(mContext));
+
 
         logout.setOnClickListener(this);
         call.setOnClickListener(this);
@@ -479,7 +511,8 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         URL url;
         HttpURLConnection connection = null;
         InputStream is = null;
-        try {
+        try
+        {
             url = new URL(urlString);
 
             // TODO Auto-generated catch block
@@ -497,7 +530,8 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
             String reply1 = "";
             Log.i("reply", "code");
 
-            while ((reply1 = theReader.readLine()) != null) {
+            while ((reply1 = theReader.readLine()) != null)
+            {
                 content.append(reply1);
             }
             theReader.close();
@@ -510,21 +544,26 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
                     Toast.LENGTH_LONG).show();
 
 
-        } catch (ConnectException e) {
+        }
+        catch (ConnectException e)
+        {
             System.out.print(e);
             e.getStackTrace();
             Exceptionflag = "true";
-        } catch (SocketTimeoutException e) {
+        }
+        catch (SocketTimeoutException e)
+        {
             // TODO: handle exception
             e.getStackTrace();
             Exceptionflag = "true";
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             System.out.print(e);
             e.getStackTrace();
 
         }
         return s;
-
     }
 
     private void postEx(String result, String id) throws JSONException
@@ -594,8 +633,7 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         }
         else if (Exceptionflag.equals("true"))
         {
-            Toast.makeText(this, "Server disconnected",
-                    Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Server disconnected", Toast.LENGTH_LONG).show();
             Exceptionflag = "false";
             AppVariable.setCallStat(false);
             if (mProgressDialog != null)
@@ -606,10 +644,12 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
 
     }
 
-    private String jsonValue(String response) {
+    private String jsonValue(String response)
+    {
         JSONObject js;
         String error = null;
-        try {
+        try
+        {
             js = new JSONObject(response);
             error = js.getString("Error");
         } catch (JSONException e) {
@@ -670,7 +710,7 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         AppVariable.setCallStat(false);
         call.setText(AppVariable.getCallButtonStat());
         Drawable img = this.getResources().getDrawable(R.drawable.treat);
-        img.setBounds(0, 0, 60, 60);
+        img.setBounds(40, 0, 60, 60);
         call.setCompoundDrawables(img, null, null, null);
     }
 
@@ -695,7 +735,7 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         AppVariable.setCallButtonStat("Call");
         call.setText(AppVariable.getCallButtonStat());
         Drawable img = this.getResources().getDrawable(R.drawable.call);
-        img.setBounds(0, 0, 60, 60);
+        img.setBounds(40, 0, 60, 60);
         call.setCompoundDrawables(img, null, null, null);
     }
 
@@ -709,7 +749,6 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         }
         else if (AppVariable.getListtype().equals("Fresh List"))
         {
-
             currenttoken.setText("Last Called Token: " + current_token);
         }
         else if (AppVariable.getListtype().equals("Skip List"))
@@ -727,7 +766,6 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         {
             Total_token = js.getString("total_token");
             current_token = js.getString("current_token");
-
             panelState();
         }
         if (AppVariable.getListtype().equals("Skip List"))
@@ -735,7 +773,6 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
             Total_token = js.getString("total_token");
             current_token = js.getString("CurrentSkippedTokenNo");
             total_skip_token = js.getString("TotalSkippedTokenNo");
-
             panelState();
         }
 
@@ -748,41 +785,40 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         {
             Total_token = js.getString("total_token");
             current_token = js.getString("current_token");
-
             panelState();
         }
         if (AppVariable.getListtype().equals("Skip List"))
         {
             Total_token = js.getString("total_token");
             total_skip_token = js.getString("TotalSkippedTokenNo");
+
             panelState();
         }
 
     }
 
 
-    private String apiDisplay(int did, int funtion_type, int roomid, int type, int listtype, int tokennum) {
+    private String apiDisplay(int did, int funtion_type, int roomid, int type, int listtype, int tokennum)
+    {
         String url = "http://" + AppVariable.getIP() + ":8080/dqms/DCUKeyFunctionAndroid?did=" + did + "&f=" + funtion_type + "&t=" + type + "&listtype=" + listtype + "&tokenno=" + tokennum;
-
-
         return url;
 
     }
 
     private class Data extends AsyncTask<String, Void, String>
     {
-
-
         String urlString;
         String id;
 
-        public Data(String string, String string2) {
+        public Data(String string, String string2)
+        {
             urlString = string;
             id = string2;
         }
 
         @Override
-        protected void onPreExecute() {
+        protected void onPreExecute()
+        {
             super.onPreExecute();
             if (id.equals(AppVariable.LOGINFLAG) || id.equals(AppVariable.SUMMARYFLAG) || id.equals(AppVariable.PATIENTDETAIL)) {
                 mProgressDialog = new ProgressDialog(PanelActivity.this);
@@ -808,13 +844,9 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
         protected void onPostExecute(String result)
         {
             super.onPostExecute(result);
-
             Log.i("LNJP", result);
-
             try {
                 postEx(result, id);
-
-
             } catch (final IllegalArgumentException e) {
                 // Handle or log or ignore
             } catch (final Exception e) {
@@ -828,16 +860,17 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
     }
 
     private void errorMessage(String result)
-
     {
-
-        switch (Integer.parseInt(result)) {
+        switch (Integer.parseInt(result))
+        {
             case 1:
                 Toast.makeText(this, "Room no or Type is blank", Toast.LENGTH_LONG).show();
                 break;
-
             case 2:
                 Toast.makeText(this, "This room does not have any room group", Toast.LENGTH_LONG).show();
+                break;
+            case 3:
+                Toast.makeText(this, "No more token for Skip List", Toast.LENGTH_LONG).show();
                 break;
             case 4:
                 Toast.makeText(this, "All patient checked. No more patient", Toast.LENGTH_LONG).show();
@@ -862,25 +895,104 @@ public class PanelActivity extends Activity implements android.view.View.OnClick
                 Toast.makeText(this, "Logout failed", Toast.LENGTH_LONG).show();
                 break;
             case 12:
-
                 Toast.makeText(this, "No more token for Fresh List", Toast.LENGTH_LONG).show();
-
                 break;
-
             case 7:
                 Toast.makeText(this, "All skipped token passed", Toast.LENGTH_LONG).show();
-
-                break;
-
-            case 3:
-                Toast.makeText(this, "No more token for Skip List", Toast.LENGTH_LONG).show();
-
                 break;
         }
 
-        if (mProgressDialog != null) {
+        if (mProgressDialog != null)
+        {
             mProgressDialog.dismiss();
         }
+    }
+    public void tokenResponse()
+    {
+        tokenBean=new TokenBean();
+        tokenBean.setUser_id(AppVariable.getDocid());
+        tokenBean.settFlag("0");
+        Log.e("Docid..........",new Gson().toJson(tokenBean));
+        RetroWraper client=new RetroWraper();
+        Call<List<TokenDataReceiveBean>> dataSend=client.getRetroService().getTokenList(tokenBean);
+        dataSend.enqueue(new Callback<List<TokenDataReceiveBean>>()
+         {
+           @Override
+           public void onResponse(Call<List<TokenDataReceiveBean>> call, Response<List<TokenDataReceiveBean>> response)
+           {
+               Log.e("token response","url="+call.request().url());
+               if(response.body().size()>0)
+               {
+                   List<TokenDataReceiveBean> tokenRecList=response.body();
+                   setAdapter(tokenRecList);
+               }
+           }
+
+           @Override
+           public void onFailure(Call<List<TokenDataReceiveBean>> call, Throwable t)
+           {
+               Log.e("Failed",""+t.toString());
+           }
+         });
+    }
+
+    private void setAdapter(List<TokenDataReceiveBean> tk_rec)
+    {
+      Log.e("Tokenlist in adapter","Token list size"+tk_rec.size());
+      tokenAdapter=new TokenAdapter(this, tk_rec, new CallBackInterface() {
+          @Override
+          public void getCalledPosition(int position)
+          {
+             Log.e("Pppp...",""+position);
+          }
+      });
+      freshTokenRecycler.setAdapter(tokenAdapter);
+    }
+
+
+    public void skiptokenResponse()
+    {
+        tokenBean=new TokenBean();
+        tokenBean.setUser_id(AppVariable.getDocid());
+        tokenBean.settFlag("1");
+        //Log.e("Docid..........",new Gson().toJson(tokenBean));
+        RetroWraper client=new RetroWraper();
+        Call<List<TokenDataReceiveBean>> dataSend=client.getRetroService().getTokenList(tokenBean);
+        dataSend.enqueue(new Callback<List<TokenDataReceiveBean>>()
+        {
+            @Override
+            public void onResponse(Call<List<TokenDataReceiveBean>> call, Response<List<TokenDataReceiveBean>> response)
+            {
+                Log.e("Skip response","="+response.body());
+                Log.e("skip","url="+call.request().url());
+                Log.e("skip token number",""+response.body().get(0).getTokenno());
+                if(response.body().size()>0)
+                {
+                    List<TokenDataReceiveBean> tokenskipRecList=response.body();
+                    setAdapterskip(tokenskipRecList);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<TokenDataReceiveBean>> call, Throwable t)
+            {
+                Log.e("Failed",""+t.toString());
+            }
+        });
+    }
+
+    private void setAdapterskip(List<TokenDataReceiveBean> tk_rec)
+    {
+        Log.e("Skiplist in size","Token list size"+tk_rec.size());
+        tokenAdapter=new TokenAdapter(this, tk_rec, new CallBackInterface()
+        {
+            @Override
+            public void getCalledPosition(int position)
+            {
+                Log.e("skip position...",""+position);
+            }
+        });
+        skipTokenRecycler.setAdapter(tokenAdapter);
     }
 
 }

@@ -16,7 +16,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetroWraper
 {
-   private static final String IP_AUTO = "http://192.168.1.127:8080/"; //cloud api
+    private static Retrofit retrofit;
+   private static final String IP_AUTO = "http:"+AppVariable.getIP()+":8080/"; //cloud api
 
 
     public static ApiInterface getRetroService()
@@ -26,12 +27,22 @@ public class RetroWraper
                 .connectTimeout(150, TimeUnit.SECONDS)
                 .build();
         Gson gson = new GsonBuilder().setLenient().create();
-        Retrofit retrofit = new Retrofit.Builder()
+        retrofit = new Retrofit.Builder()
                 .baseUrl(IP_AUTO)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(okHttpClient)
                 .build();
         return retrofit.create(ApiInterface.class);
+    }
+
+    public static Retrofit getRetrofitInstance() {
+        if (retrofit == null) {
+            retrofit = new retrofit2.Retrofit.Builder()
+                    .baseUrl(IP_AUTO)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return retrofit;
     }
 
 }

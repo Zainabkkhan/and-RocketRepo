@@ -10,8 +10,7 @@ import android.net.NetworkInfo;
 public class AppVariable {
 	
 	 private static String IP ="192.168.1.1";//Server IP
-//	private static String IP ="192.168.1.106";//Server IP
-	private static int type ;// list type 0 = fresh, 1 =Skip
+	private static int type ; // list type 0 = fresh, 1 =Skip
 	private static int docid;
 	private static int calltoken; // call token for Skiplist
 	private static String username;

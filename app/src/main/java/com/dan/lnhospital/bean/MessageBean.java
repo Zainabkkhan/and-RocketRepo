@@ -9,7 +9,15 @@ public class MessageBean
     private String message;
     private String mFlag;
     private String docId;
-    private String Id;
+    private String flag;
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
 
     public String getDocId() {
         return docId;

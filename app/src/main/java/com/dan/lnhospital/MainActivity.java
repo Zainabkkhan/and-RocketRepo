@@ -53,9 +53,10 @@ public class MainActivity extends Activity implements OnClickListener
         username = findViewById(R.id.editText1);
         password = findViewById(R.id.editText2);
 
-        String Ip = getIP.getString("IP", null);
+        String Ip = getIP.getString("IP", AppVariable.getIP());
         Log.e("Ip.......",""+Ip);
-        if (Ip != null) {
+        if (Ip != null)
+        {
             AppVariable.setIP(Ip);
         }
 
