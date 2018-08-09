@@ -14,4 +14,11 @@ public class TokenDataReceiveBean {
     public void setTokenno(String tokenno) {
         this.tokenno = tokenno;
     }
+
+    @Override
+    public String toString() {
+//        return super.toString();
+        return tokenno;
+    }
+
 }

@@ -134,7 +134,6 @@ class LoginAsync extends AsyncTask<String, Void, String> {
             String error = jsonValue(result);
             if (flag == 1)
             {
-
                 Toast.makeText(main, "Server disconnected", Toast.LENGTH_LONG).show();
                 flag = 0;
             } else if (error.equals("0"))

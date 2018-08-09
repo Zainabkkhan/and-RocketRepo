@@ -104,6 +104,7 @@
         </receiver>
 
         <activity android:name="com.dan.lnhospital.MessageActivity" />
+        <activity android:name="com.dan.lnhospital.MessageTypingActivity" />
     </application>
 
 </manifest>

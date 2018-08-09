@@ -74,7 +74,7 @@
             android:layout_marginRight="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="40dp"
             android:layout_below="@id/totalSkippedToken"
             android:weightSum="1">
 
@@ -82,16 +82,22 @@
                 android:background="@drawable/round_corner2"
                 android:id="@+id/fresh_token_recycler"
                 android:layout_width="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
-                android:layout_weight=".5" />
+                android:layout_weight=".5"  />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/skip_token_recycler"
                 android:layout_width="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:visibility="gone"
                 android:background="@drawable/round_corner2"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_weight=".5" />
+                android:layout_weight=".5"  />
         </LinearLayout>
 
     </RelativeLayout>
@@ -131,7 +137,7 @@
                 android:background="@layout/button005"
                 android:drawableLeft="@drawable/skiplist"
                 android:padding="15dp"
-                android:text="Skip List" />
+                android:text="Skip List"  />
 
 
             <Button

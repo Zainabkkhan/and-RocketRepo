@@ -53,12 +53,12 @@
             android:name=".PanelActivity"
             android:label="@string/title_activity_panel"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name=".FirstActivity"
             android:label="@string/title_activity_panel"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
         <!-- <service -->
         <!-- android:name="com.dan.lnhospital.CameraService" -->
@@ -66,25 +66,25 @@
         <!-- </service> -->
         <service
             android:name=".DisplayService"
-            android:label="DisplayService"></service>
+            android:label="DisplayService" />
 
-        <receiver android:name=".LoginReciever"></receiver>
-        <receiver android:name=".WifiReciever"></receiver>
+        <receiver android:name=".LoginReciever" />
+        <receiver android:name=".WifiReciever" />
 
         <service
             android:name=".WiFiCheckService"
-            android:label="WiFiCheckService"></service>
+            android:label="WiFiCheckService" />
 
         <activity
             android:name=".DocSummaryActivity"
             android:label="@string/title_activity_doc_summary"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name=".PateintDetailActivity"
             android:label="@string/title_activity_pateint_detail"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
         <receiver
             android:name=".BootComplete"
@@ -97,7 +97,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".MessageActivity"></activity>
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".MessageTypingActivity"></activity>
     </application>
 
 </manifest>

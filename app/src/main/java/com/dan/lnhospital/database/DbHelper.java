@@ -40,7 +40,7 @@ public class DbHelper extends SQLiteOpenHelper
 
     public void insertMsgs(List<MessageBean> msgsList)
     {
-   //     Log.e("Message Database size",""+msgsList.size());
+       Log.e("Message Database size",""+msgsList.size());
         ContentValues contentMsg;
         SQLiteDatabase db;
         synchronized (db = getWritableDatabase())
